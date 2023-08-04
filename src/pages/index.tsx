@@ -21,7 +21,6 @@ export async function getServerSideProps() {
 }
 
 const Home = ({ conversations, userId }: Props) => {
-  console.log(conversations);
 
   return (
     <main className='container mx-auto'>
@@ -35,7 +34,7 @@ const Home = ({ conversations, userId }: Props) => {
                   <img className='w-14 rounded-full' src="https://i.pravatar.cc/100" alt="" />
                   <h2 className='font-semibold ml-3'>{userId === senderId ? recipientNickname : senderNickname }</h2>
                 </div>
-                <p>{new Date(Date.now() - lastMessageTimestamp).toLocaleString("es-AR",{hour:"2-digit", minute:"2-digit"})}</p>
+                <p>{new Date(Date.now() - lastMessageTimestamp).toLocaleString('es-AR', { day: '2-digit', month:'2-digit' })}</p>
               </li>
             </Link>
           );
